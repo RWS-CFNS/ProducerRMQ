@@ -3,6 +3,7 @@ package cfns.producerRMQ;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.AMQP;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.sql.*;
@@ -103,9 +104,13 @@ public class App {
 
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueDeclare(QUEUE_NAME, true, false, false, null);
 
-            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+            AMQP.BasicProperties propertiesRMQ = new AMQP.BasicProperties.Builder()
+                    .deliveryMode(2) // 2 = persistent
+                    .build();
+            
+            channel.basicPublish("", QUEUE_NAME, propertiesRMQ, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
 
             System.out.println(
