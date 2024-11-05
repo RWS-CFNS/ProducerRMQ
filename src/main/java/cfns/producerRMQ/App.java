@@ -42,7 +42,7 @@ public class App {
         JSONObject jsonTables = new JSONObject();
 
         if (sendWeather) {
-            String weatherSql = "SELECT * FROM weather LIMIT " + limit;
+            String weatherSql = "SELECT * FROM weather ORDER BY time DESC LIMIT " + limit;
             ResultSet rs = st.executeQuery(weatherSql);
             JSONArray weatherArray = new JSONArray();
 
@@ -62,7 +62,7 @@ public class App {
         }
 
         if (sendConn) {
-        	String connSql = "SELECT id, mno, ST_AsText(coordinates) as coordinates, rsrq, rsrp, sinr, mastid, tijd, rssi, lat, long, type, cell_plmn, tac_lac, cell_utran_id, lat_mast, long_mast " +
+        	String connSql = "SELECT id, mno, ST_AsText(coordinates) as coordinates, rsrq, rsrp, sinr, weather_id, tijd, rssi, lat, long, type, cell_plmn, tac_lac, cell_utran_id, lat_mast, long_mast " +
                     "FROM conn " +
                     "ORDER BY tijd DESC " +
                     "LIMIT " + limit;
@@ -77,7 +77,7 @@ public class App {
                     jsonRow.put("rsrq", rs.getFloat("rsrq"));
                     jsonRow.put("rsrp", rs.getFloat("rsrp"));
                     jsonRow.put("sinr", rs.getFloat("sinr"));
-                    jsonRow.put("mastid", rs.getInt("mastid"));
+                    jsonRow.put("weather_id", rs.getInt("weather_id"));
                     jsonRow.put("tijd", rs.getTimestamp("tijd").toString());
                     jsonRow.put("rssi", rs.getInt("rssi"));
                     jsonRow.put("lat", rs.getFloat("lat"));
