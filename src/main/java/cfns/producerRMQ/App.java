@@ -21,7 +21,6 @@ public class App {
             properties.load(input);
         } catch (IOException e) {
             System.err.println("Error loading config.properties: " + e.getMessage());
-            e.printStackTrace();
             return;
         }
 
@@ -67,7 +66,6 @@ public class App {
                     jsonTables.put("weather", weatherArray);
                 } catch (SQLException e) {
                     System.err.println("Error querying weather data: " + e.getMessage());
-                    e.printStackTrace();
                 }
             }
 
@@ -104,7 +102,6 @@ public class App {
                     jsonTables.put("conn", connArray);
                 } catch (SQLException e) {
                     System.err.println("Error querying conn data: " + e.getMessage());
-                    e.printStackTrace();
                 }
             }
 
@@ -124,7 +121,6 @@ public class App {
                     jsonTables.put("ais", aisArray);
                 } catch (SQLException e) {
                     System.err.println("Error querying ais data: " + e.getMessage());
-                    e.printStackTrace();
                 }
             }
 
@@ -140,26 +136,24 @@ public class App {
                 channel.queueDeclare(QUEUE_NAME, true, false, false, null);
 
                 AMQP.BasicProperties propertiesRMQ = new AMQP.BasicProperties.Builder()
-                        .deliveryMode(2) // 2 = persistent
+                        .deliveryMode(2)
                         .build();
 
                 channel.basicPublish("", QUEUE_NAME, propertiesRMQ, message.getBytes());
-                System.out.println(" [x] Sent '" + message + "'");
+                System.out.println("sent");
 
                 System.out.println(
-                        "                /_____             \r\n"
+                        "                			/_____             \r\n"
                                 + "          _____/______|            \r\n"
                                 + "  _______/_____\\______\\_____     \r\n"
                                 + "  \\     Barend Biesheuvel    |    \r\n"
                                 + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ");
             } catch (Exception e) {
                 System.err.println("Error with RabbitMQ: " + e.getMessage());
-                e.printStackTrace();
             }
 
         } catch (SQLException e) {
             System.err.println("Database connection error: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }
