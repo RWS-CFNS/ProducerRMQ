@@ -13,7 +13,7 @@
   <h3 align="center">ProducerRMQ</h3>
 
   <p align="center">
-    Retrieves the location of the connected towers from OpenCellID
+    Sends data from and to a PostgreSQL database using RabbitMQ.
     <br />
     <a href="https://github.com/RWS-CFNS/ProducerRMQ"><strong>Explore the docs »</strong></a>
     <br />
