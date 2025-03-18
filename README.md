@@ -18,11 +18,6 @@
     <a href="https://github.com/RWS-CFNS/ProducerRMQ"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RWS-CFNS/ProducerRMQ">View Demo</a>
-    &middot;
-    <a href="https://github.com/RWS-CFNS/ProducerRMQ/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/RWS-CFNS/ProducerRMQ/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -46,11 +41,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <!-- <li><a href="#roadmap">Roadmap</a></li> -->
-    <!-- <li><a href="#contributing">Contributing</a></li> -->
     <li><a href="#license">License</a></li>
-    <!-- <li><a href="#contact">Contact</a></li> -->
-    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -93,7 +84,18 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ### Prerequisites
 
-Ensure you have Python 3 installed on your system.
+RabbitMQ and PostgreSQL Setup:
+
+* RabbitMQ should be running on the host and ip specified in your config.properties. This application will connect to it and sends the messages to the RabbitMQ server.
+* PostgreSQL should also be running with the mirrored version of the Consumers database on the host and ip + port specified in your config.properties.
+* Ensure the correct credentials are provided in the config.properties.
+
+Java Runtime Environment (JRE):
+
+Make sure you have a compatible JRE (Java Runtime Environment) installed, JRE 8 or higher is required.
+   ```sh
+   java -version
+   ```
 
 ### Installation
 
@@ -122,6 +124,7 @@ Ensure you have Python 3 installed on your system.
    ```sh
    java -jar produceRMQ.jar
    ```
+After running the program, it will send the data from the specified database and tables to the RabbitMQ server queue, if a Consumer it listening to it, it will forward the messages.
 
 ## Usage
 This application is designed for sending data to and from a PostgreSQL database using RabbitMQ and JSON for batch processing. It retrieves records from the database, converts them into JSON format, and publishes them to a message queue for further processing. The combination of PostgreSQL, RabbitMQ, and JSON enables seamless integration with various data-driven applications.
