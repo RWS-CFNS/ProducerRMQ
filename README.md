@@ -104,21 +104,21 @@ Make sure you have a compatible JRE (Java Runtime Environment) installed, JRE 8 
    ```python
     PostgreSQL Configuratie
     db.url=jdbc:postgresql://<ip>:<port>/<database_name>
-    db.username="username"
-    db.password="password"
+    db.username=<username>
+    db.password=<password>
 
     RabbitMQ Configuratie
-    rabbitmq.host="ip"
-    rabbitmq.username="username"
-    rabbitmq.password="password"
+    rabbitmq.host=<ip>
+    rabbitmq.username=<username>
+    rabbitmq.password=<password>
     
     SQL Limit
-    sql.limit="amount of rows"
+    sql.limit=<amount of rows>
     
     Tables to Send
-    send.weather="true/false"
-    send.conn="true/false"
-    send.ais="true/false"
+    send.weather=<true/false>
+    send.conn=<true/false>
+    send.ais=<true/false>
    ```
 3. Run the script manually to test:
    ```sh
@@ -138,8 +138,8 @@ Distributed under the Unlicense License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/RWS-CFNS/MastLocatieVerwerker.svg?style=for-the-badge
-[license-url]: https://github.com/RWS-CFNS/MastLocatieVerwerker/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/RWS-CFNS/ProducerRMQ.svg?style=for-the-badge
+[license-url]: https://github.com/RWS-CFNS/ProducerRMQ/blob/master/LICENSE.txt
 
 [Eclipse.org]: https://img.shields.io/badge/Eclipse-7E48BD?style=for-the-badge&logo=eclipse&logoColor=white
 [Eclipse-url]: https://Eclipse.org/
