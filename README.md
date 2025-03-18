@@ -66,7 +66,7 @@ This application automates the process of retrieving and transmitting database r
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section lists any major frameworks/libraries used while developing this tool.
 
 [![Eclipse][Eclipse.org]][Eclipse-url]
 [![openjdk][openjdk.org]][openjdk-url]
@@ -118,7 +118,7 @@ Make sure you have a compatible JRE (Java Runtime Environment) installed, JRE 8 
     send.conn=<true/false>
     send.ais=<true/false>
    ```
-3. Run the script manually to test:
+3. Run the script:
    ```sh
    java -jar produceRMQ.jar
    ```
