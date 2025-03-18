@@ -138,7 +138,7 @@ Distributed under the Unlicense License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/RWS-CFNS/ProducerRMQ.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/RWS-CFNS/producerRMQ.svg?style=for-the-badge
 [license-url]: https://github.com/RWS-CFNS/ProducerRMQ/blob/master/LICENSE.txt
 
 [Eclipse.org]: https://img.shields.io/badge/Eclipse-7E48BD?style=for-the-badge&logo=eclipse&logoColor=white
